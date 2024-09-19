@@ -88,6 +88,46 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* Light mode styles (default) */
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.container.dark-mode {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+nav.dark-mode {
+    background-color: #444;
+}
+
+footer.dark-mode {
+    background-color: #444;
+    color: #e0e0e0;
+}
+
+
+
+
+
+
+
 
 
 
