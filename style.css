@@ -366,6 +366,32 @@ nav.dark-mode {
     background-color: #222;
 }
 
+/* Light mode (default) */
+body {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+/* Apply dark mode styles for headings, paragraphs, images, and captions */
+h1.dark-mode, h2.dark-mode, p.dark-mode, figure.dark-mode, figcaption.dark-mode {
+    color: #e0e0e0;
+}
+
+/* Links in dark mode */
+a.dark-mode {
+    color: #3498db;
+}
+
+/* Ensure images and any other necessary elements are styled properly */
+img.dark-mode {
+    filter: brightness(0.8);
+}
 
 
 
