@@ -3,12 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key-logger Project Screenshots</title>
+    <title>Keylogger Project Screenshots</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Key-logger Project Screenshots</h1>
-    <img src="Keylogger/IMG_9747.jpg" alt="Key-logger Code Screenshot" style="width:100%; max-width:400px;">
-    <img src="Keylogger/IMG_9748.jpg" alt="Key-logger Log Screenshot 1" style="width:100%; max-width:400px;">
-    <img src="Keylogger/IMG_9749.jpg" alt="Key-logger Log Screenshot 2" style="width:100%; max-width:400px;">
+    <div class="container">
+        <h1>Key-logger Project Screenshots</h1>
+        
+        <h2>Key-logger Code Screenshot</h2>
+        <img src="Keylogger/IMG_9747.jpeg" alt="Key-logger Code Screenshot">
+
+        <h2>Key-logger Log Screenshot 1</h2>
+        <img src="Keylogger/IMG_9748.jpeg" alt="Key-logger Log Screenshot 1">
+
+        <h2>Key-logger Log Screenshot 2</h2>
+        <img src="Keylogger/IMG_9749.jpeg" alt="Key-logger Log Screenshot 2">
+
+        <button id="toggle-dark-mode">Toggle Dark Mode</button>
+    </div>
+    
+    <script>
+        const toggleButton = document.getElementById("toggle-dark-mode");
+        const body = document.body;
+
+        toggleButton.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+        });
+    </script>
 </body>
 </html>
