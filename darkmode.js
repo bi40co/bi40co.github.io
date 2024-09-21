@@ -9,9 +9,12 @@ if (currentMode === 'dark') {
 
 // Toggle dark mode
 toggleButton.addEventListener('click', () => {
+    alert("Button clicked!");  // Add this for testing
+
+    // Toggle dark mode for the body
     document.body.classList.toggle('dark-mode');
 
-    // Toggle dark mode for headings, paragraphs, figure, figcaption, and links
+    // Toggle dark mode for headings, paragraphs, figures, figcaptions, and links
     document.querySelectorAll('h1, h2, p, figure, figcaption, a').forEach(el => {
         el.classList.toggle('dark-mode');
     });
