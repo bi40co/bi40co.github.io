@@ -196,6 +196,15 @@ button:hover {
     border-radius: 5px;
 }
 
+figure {
+    margin: 20px auto;
+    text-align: center;
+}
 
+figcaption {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+}
 
 
