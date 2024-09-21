@@ -303,8 +303,24 @@ footer.dark-mode {
     background-color: #2980b9;
 }
 
-
-
-
+body.dark-mode {
+  background-color: #333;
+  color: #eee;
+}
+footer.dark-mode {
+  background-color: #444;
+  color: #eee;
+}
+#dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 
