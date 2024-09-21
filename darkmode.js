@@ -1,50 +1,27 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const toggleButton = document.getElementById('darkModeToggle');
-    const body = document.body;
+const toggleButton = document.getElementById('darkModeToggle');
 
-    // Apply correct mode on page load based on localStorage
-    function applyDarkMode() {
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            body.classList.add('dark-mode'); // Enable dark mode
-            toggleButton.textContent = "Light Mode"; // Change button to "Light Mode"
-            toggleInnerElements('dark-mode'); // Apply to all inner elements
-        } else {
-            body.classList.remove('dark-mode'); // Disable dark mode
-            toggleButton.textContent = "Dark Mode"; // Change button to "Dark Mode"
-            toggleInnerElements(''); // Remove dark-mode class from all inner elements
-        }
-    }
+// Check for saved dark mode preference
+const currentMode = localStorage.getItem('darkMode');
+if (currentMode === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleButton.textContent = 'Light Mode';
+}
 
-    // Toggle dark mode when the button is clicked
-    function toggleDarkMode() {
-        body.classList.toggle('dark-mode'); // Toggle 'dark-mode' class on the body
-        toggleInnerElements(body.classList.contains('dark-mode') ? 'dark-mode' : ''); // Update inner elements
+// Toggle dark mode
+toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
 
-        if (body.classList.contains('dark-mode')) {
-            toggleButton.textContent = "Light Mode"; // Update button to "Light Mode"
-            localStorage.setItem('darkMode', 'enabled'); // Store mode in localStorage
-        } else {
-            toggleButton.textContent = "Dark Mode"; // Update button to "Dark Mode"
-            localStorage.setItem('darkMode', 'disabled'); // Store mode in localStorage
-        }
-    }
-
-    // Function to toggle dark mode on inner elements
-    function toggleInnerElements(modeClass) {
-        document.querySelectorAll('h1, h2, p, figure, figcaption').forEach(el => {
-            if (modeClass) {
-                el.classList.add(modeClass);
-            } else {
-                el.classList.remove('dark-mode');
-            }
-        });
-    }
-
-    // Initialize the correct mode when the page loads
-    applyDarkMode();
-
-    // Set up the click event listener for the toggle button
-    toggleButton.addEventListener('click', function () {
-        toggleDarkMode(); // Call toggle function when the button is clicked
+    // Toggle dark mode for headings, paragraphs, figure, figcaption, and links
+    document.querySelectorAll('h1, h2, p, figure, figcaption, a').forEach(el => {
+        el.classList.toggle('dark-mode');
     });
+
+    // Change button text between Dark Mode and Light Mode
+    if (document.body.classList.contains('dark-mode')) {
+        toggleButton.textContent = 'Light Mode';
+        localStorage.setItem('darkMode', 'dark');  // Save preference
+    } else {
+        toggleButton.textContent = 'Dark Mode';
+        localStorage.setItem('darkMode', 'light');  // Save preference
+    }
 });
