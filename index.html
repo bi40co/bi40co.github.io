@@ -8,7 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <button id="darkModeToggle" style="position: fixed; top: 20px; right: 20px;">Dark Mode</button>  <!-- Dark Mode Toggle Button -->
     <div class="container">
+    
+        
         <h1>Kofi's Cybersecurity Portfolio</h1>
         <h2>Welcome to My E-Portfolio</h2>
         <p>Welcome to my cybersecurity e-portfolio! Here, I showcase projects that demonstrate my skills in network security, cryptography, and Python-based security tools. As I progress on my journey toward Security+ certification, this portfolio reflects my commitment to mastering cybersecurity.</p>
@@ -35,10 +38,7 @@
         <p>This project involved building a fake login page using HTML, processing the credentials with a PHP script, logging the captured credentials in a text file, and hosting the local environment using MAMP PRO.</p>
         <p><a href="PhishingCampaign/README.md">Read more about the Phishing Campaign project</a></p>
 
-    </div>
-
-    <button id="darkModeToggle">Dark Mode</button>
-    
+    </div>    
     
     <nav>
         <ul>
@@ -56,12 +56,30 @@
 
     <script>
         const toggleButton = document.getElementById('darkModeToggle');
-        toggleButton.addEventListener('click', function () {
+        const body = document.body;
+
+        // Toggle dark mode on button click
+        toggleButton.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             document.querySelector('.container').classList.toggle('dark-mode');
             document.querySelector('nav').classList.toggle('dark-mode');
             document.querySelector('footer').classList.toggle('dark-mode');
+
+            // Save the dark mode preference
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('dark-mode', 'enabled');
+            } else {
+                localStorage.setItem('dark-mode', 'disabled');
+            }
         });
+
+        // Check for saved user preference for dark mode
+        if (localStorage.getItem('dark-mode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.container').classList.add('dark-mode');
+            document.querySelector('nav').classList.add('dark-mode');
+            document.querySelector('footer').classList.add('dark-mode');
+        }
     </script>
     
 </body>
