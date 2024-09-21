@@ -287,7 +287,21 @@ footer.dark-mode {
 }
 
 
+#darkModeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+#darkModeToggle:hover {
+    background-color: #2980b9;
+}
 
 
 
