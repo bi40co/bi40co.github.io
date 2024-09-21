@@ -1,50 +1,36 @@
-// Wait for the DOM to fully load before running the script
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.getElementById('darkModeToggle');
+    const body = document.body;
 
-    // Check if dark mode is saved in localStorage
-    const savedMode = localStorage.getItem('darkMode');
-    if (savedMode === 'dark') {
-        applyDarkMode();
-        toggleButton.textContent = "Light Mode"; // Set button text accordingly
-    } else {
-        toggleButton.textContent = "Dark Mode";
-    }
-
-    // Event listener for the Dark Mode/White Mode toggle button
-    toggleButton.addEventListener('click', function () {
-        document.body.classList.toggle('dark-mode');
-        document.querySelector('.container').classList.toggle('dark-mode');
-        document.querySelector('nav').classList.toggle('dark-mode');
-        document.querySelector('footer').classList.toggle('dark-mode');
-
-        // Apply dark mode to headings, paragraphs, and links
-        document.querySelectorAll('h1, h2, p, a').forEach(el => {
-            el.classList.toggle('dark-mode');
-        });
-
-        // Toggle button text between Dark Mode and White Mode
-        if (toggleButton.textContent.trim() === "Dark Mode") {
-            toggleButton.textContent = "Light Mode";
-        } else {
-            toggleButton.textContent = "Dark Mode";
-        }
-
-        // Save the current mode in localStorage
-        const currentMode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-        localStorage.setItem('darkMode', currentMode);
-    });
-
-    // Function to apply dark mode classes
+    // Apply correct mode on page load based on localStorage
     function applyDarkMode() {
-        document.body.classList.add('dark-mode');
-        document.querySelector('.container').classList.add('dark-mode');
-        document.querySelector('nav').classList.add('dark-mode');
-        document.querySelector('footer').classList.add('dark-mode');
-
-        // Apply dark mode to headings, paragraphs, and links
-        document.querySelectorAll('h1, h2, p, a').forEach(el => {
-            el.classList.add('dark-mode');
-        });
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode'); // Enable dark mode
+            toggleButton.textContent = "Light Mode"; // Change button to "White Mode"
+        } else {
+            body.classList.remove('dark-mode'); // Disable dark mode
+            toggleButton.textContent = "Dark Mode"; // Change button to "Dark Mode"
+        }
     }
+
+    // Toggle dark mode when the button is clicked
+    function toggleDarkMode() {
+        body.classList.toggle('dark-mode'); // Toggle 'dark-mode' class on the body
+
+        if (body.classList.contains('dark-mode')) {
+            toggleButton.textContent = "Light Mode"; // Update button to "White Mode"
+            localStorage.setItem('darkMode', 'enabled'); // Store mode in localStorage
+        } else {
+            toggleButton.textContent = "Dark Mode"; // Update button to "Dark Mode"
+            localStorage.setItem('darkMode', 'disabled'); // Store mode in localStorage
+        }
+    }
+
+    // Initialize the correct mode when the page loads
+    applyDarkMode();
+
+    // Set up the click event listener for the toggle button
+    toggleButton.addEventListener('click', function () {
+        toggleDarkMode(); // Call toggle function when the button is clicked
+    });
 });
