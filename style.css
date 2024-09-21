@@ -125,7 +125,7 @@ footer.dark-mode {
 img {
     display: block;
     margin: 20px auto;
-    max-width: 30%;
+    max-width: 100%;
     height: auto;
     border-radius: 8px;
 }
@@ -144,7 +144,7 @@ img {
 img {
     display: block;
     margin: 20px auto;
-    max-width: 100%;
+    max-width: 30%;
     height: auto;
     border-radius: 8px;
 }
