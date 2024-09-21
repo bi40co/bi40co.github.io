@@ -104,8 +104,25 @@ body {
 
 /* Dark mode styles */
 body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode h2 {
+  color: #f5f5f5;
+}
+
+.dark-mode p, .dark-mode figcaption {
+  color: #e0e0e0;
+}
+
+.dark-mode button {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode img {
+  border-color: #444;
 }
 
 .container.dark-mode {
