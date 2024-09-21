@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedMode = localStorage.getItem('darkMode');
     if (savedMode === 'dark') {
         applyDarkMode();
-        toggleButton.textContent = "White Mode"; // Set button text accordingly
+        toggleButton.textContent = "Light Mode"; // Set button text accordingly
     } else {
         toggleButton.textContent = "Dark Mode";
     }
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Toggle button text between Dark Mode and White Mode
         if (toggleButton.textContent.trim() === "Dark Mode") {
-            toggleButton.textContent = "White Mode";
+            toggleButton.textContent = "Light Mode";
         } else {
             toggleButton.textContent = "Dark Mode";
         }
