@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keylogger Project Screenshots</title>
     <link rel="stylesheet" href="style.css">
+   
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -25,9 +31,9 @@
           <figcaption>This is another part of the log file, continuing the captured keystrokes during a testing session.</figcaption>
         </figure>
 
-        <button id="darkModeToggle">Dark Mode</button>
+        <button class="toggle-dark-mode" onclick="toggleDarkMode()">Dark Mode</button>
         
-        }
+        
     </div>
     
     <script>
