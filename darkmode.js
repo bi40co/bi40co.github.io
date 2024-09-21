@@ -9,7 +9,7 @@ if (currentMode === 'dark') {
 
 // Toggle dark mode
 toggleButton.addEventListener('click', () => {
-    alert("Button clicked!");  // Add this for testing
+    console.log("Button clicked!");  // Logging for testing
 
     // Toggle dark mode for the body
     document.body.classList.toggle('dark-mode');
