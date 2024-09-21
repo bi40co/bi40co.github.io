@@ -224,4 +224,54 @@ figcaption {
     margin-top: 10px;
 }
 
+/* Default Light Mode */
+body {
+    background-color: #fff;
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #222;
+    color: #e0e0e0;
+}
+
+.container.dark-mode {
+    background-color: #444;
+}
+
+a.dark-mode {
+    color: #70a1ff;
+}
+
+h1.dark-mode, h2.dark-mode, h3.dark-mode {
+    color: #e0e0e0;
+}
+
+
+
+
+
+
+
+
+
+
+
 
