@@ -329,3 +329,12 @@ nav.dark-mode, footer.dark-mode {
     background-color: #222;
     color: #e0e0e0;
 }
+
+/* Style for links in dark mode */
+body.dark-mode a {
+    color: #3498db; /* Adjust this blue shade to whatever you prefer */
+}
+
+body.dark-mode a:hover {
+    color: #2980b9; /* A slightly darker shade on hover */
+}
