@@ -406,5 +406,30 @@ a.dark-mode {
     color: #3498db;
 }
 
+/* Dark mode for the body */
+body.dark-mode {
+    background-color: #333;
+    color: #e0e0e0;
+}
 
+/* Dark mode for text elements */
+h1.dark-mode, h2.dark-mode, p.dark-mode, figure.dark-mode, figcaption.dark-mode {
+    color: #e0e0e0;
+}
+
+/* Dark mode for anchor tags */
+a.dark-mode {
+    color: #3498db;
+}
+
+/* Dark mode for images and other containers */
+.container.dark-mode {
+    background-color: #444;
+}
+
+/* Dark mode for navigation and footer */
+nav.dark-mode, footer.dark-mode {
+    background-color: #222;
+    color: #e0e0e0;
+}
 
