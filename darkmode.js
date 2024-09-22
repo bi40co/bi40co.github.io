@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    console.log("DOM fully loaded and parsed");
     const toggleButton = document.getElementById('darkModeToggle');
     toggleButton.addEventListener('click', function () {
         // Toggle dark mode for body and containers
