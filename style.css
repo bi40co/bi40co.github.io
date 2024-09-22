@@ -489,3 +489,21 @@ body.dark-mode a {
 body.dark-mode a:hover {
     color: #2980b9; /* A slightly darker shade on hover */
 }
+
+a {
+    color: #3498db; /* Blue color for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a.dark-mode {
+    color: #3498db; /* Blue color for links in dark mode */
+    text-decoration: none;
+}
+
+a.dark-mode:hover {
+    text-decoration: underline;
+}
