@@ -1,30 +1,31 @@
-const toggleButton = document.getElementById('darkModeToggle');
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.getElementById('darkModeToggle');
+    const currentMode = localStorage.getItem('darkMode') || 'light';
 
-// Check for saved dark mode preference
-const currentMode = localStorage.getItem('darkMode');
-if (currentMode === 'dark') {
-    document.body.classList.add('dark-mode');
-    toggleButton.textContent = 'Light Mode';
-}
-
-// Toggle dark mode
-toggleButton.addEventListener('click', () => {
-    console.log("Button clicked!");  // Logging for testing
-
-    // Toggle dark mode for the body
-    document.body.classList.toggle('dark-mode');
-
-    // Toggle dark mode for headings, paragraphs, figures, figcaptions, and links
-    document.querySelectorAll('h1, h2, p, figure, figcaption, a').forEach(el => {
-        el.classList.toggle('dark-mode');
-    });
-
-    // Change button text between Dark Mode and Light Mode
-    if (document.body.classList.contains('dark-mode')) {
+    // Apply saved theme on page load
+    if (currentMode === 'dark') {
+        document.body.classList.add('dark-mode');
         toggleButton.textContent = 'Light Mode';
-        localStorage.setItem('darkMode', 'dark');  // Save preference
     } else {
         toggleButton.textContent = 'Dark Mode';
-        localStorage.setItem('darkMode', 'light');  // Save preference
     }
+
+    // Toggle theme when button is clicked
+    toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+
+        // Apply dark mode to other elements
+        document.querySelectorAll('h1, h2, p, figure, figcaption, a').forEach(el => {
+            el.classList.toggle('dark-mode');
+        });
+
+        // Switch button text and save preference
+        if (document.body.classList.contains('dark-mode')) {
+            toggleButton.textContent = 'Light Mode';
+            localStorage.setItem('darkMode', 'dark');
+        } else {
+            toggleButton.textContent = 'Dark Mode';
+            localStorage.setItem('darkMode', 'light');
+        }
+    });
 });
