@@ -1,34 +1,37 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.getElementById('darkModeToggle');
-    
-    // If the button is found
-    if (toggleButton) {
-        // Check localStorage for saved dark mode preference
-        const currentMode = localStorage.getItem('darkMode');
-        if (currentMode === 'dark') {
-            document.body.classList.add('dark-mode');
-            toggleButton.textContent = 'Light Mode';
-        } else {
-            document.body.classList.remove('dark-mode');
-            toggleButton.textContent = 'Dark Mode';
-        }
+    const currentMode = localStorage.getItem('dark-mode') || 'light';
 
-        // Add click event listener to toggle button
-        toggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            document.querySelectorAll('h1, h2, p, figure, figcaption, a').forEach(el => {
-                el.classList.toggle('dark-mode');
-            });
-
-            if (document.body.classList.contains('dark-mode')) {
-                toggleButton.textContent = 'Light Mode';
-                localStorage.setItem('darkMode', 'dark');
-            } else {
-                toggleButton.textContent = 'Dark Mode';
-                localStorage.setItem('darkMode', 'light');
-            }
-        });
+    if (currentMode === 'dark') {
+        enableDarkMode();
     } else {
-        console.error('Dark Mode Toggle button not found!');
+        disableDarkMode();
+    }
+
+    toggleButton.addEventListener('click', () => {
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        if (isDarkMode) {
+            disableDarkMode();
+        } else {
+            enableDarkMode();
+        }
+    });
+
+    function enableDarkMode() {
+        document.body.classList.add('dark-mode');
+        document.querySelectorAll('h1, h2, p, figure, figcaption, a').forEach(el => {
+            el.classList.add('dark-mode');
+        });
+        localStorage.setItem('dark-mode', 'dark');
+        toggleButton.textContent = "Light Mode";
+    }
+
+    function disableDarkMode() {
+        document.body.classList.remove('dark-mode');
+        document.querySelectorAll('h1, h2, p, figure, figcaption, a').forEach(el => {
+            el.classList.remove('dark-mode');
+        });
+        localStorage.setItem('dark-mode', 'light');
+        toggleButton.textContent = "Dark Mode";
     }
 });
