@@ -507,3 +507,7 @@ a.dark-mode {
 a.dark-mode:hover {
     text-decoration: underline;
 }
+
+.white-text {
+    color: white;
+}
